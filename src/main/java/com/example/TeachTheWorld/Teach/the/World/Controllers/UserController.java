@@ -3,12 +3,15 @@ package com.example.TeachTheWorld.Teach.the.World.Controllers;
 import com.example.TeachTheWorld.Teach.the.World.Models.User;
 import com.example.TeachTheWorld.Teach.the.World.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@ResponseStatus(HttpStatus.SERVICE_UNAVAILABLE)
 public class UserController {
     private UserService userService;
 
@@ -28,12 +31,18 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public void createUser(@RequestBody User user){
+    public ResponseEntity<String> createUser(@RequestBody User user){
         userService.save(user);
+        return ResponseEntity.ok().body("Пользователь успешно сохранен");
     }
 
     @DeleteMapping("/delete")
-    public void deleteUserById(@RequestParam Long id){
-        userService.deleteById(id);
+    public ResponseEntity<String> deleteUserById(@RequestParam Long id){
+        try{
+            userService.deleteById(id);
+            return ResponseEntity.ok().body("Пользователь успешно удален");
+        }catch (Exception e){
+            return ResponseEntity.notFound().build();
+        }
     }
 }

@@ -27,7 +27,9 @@ public class CourseServiceImpl implements CourseService{
 
     @Override
     public List<Course> getAllCourses() {
-        return courseRepository.findAll();
+        List<Course> courses = courseRepository.findAll();
+        courses.forEach(item -> item.setPages(null));
+        return courses;
     }
 
     @Override
@@ -44,4 +46,18 @@ public class CourseServiceImpl implements CourseService{
     public CoursePage getCoursePageById(Long id) {
         return coursePageRepository.getById(id);
     }
+
+    @Override
+    public List<Course> getAllCoursesWithLimit(int limit) {
+        List<Course> courses = courseRepository.findAll();
+        courses.subList(limit, courses.size()).clear();
+        courses.forEach(item -> item.setPages(null));
+        return courses;
+    }
+
+    @Override
+    public List<Course> searchCourseByParameter(String parameter) {
+        return courseRepository.findCourseByTitleContainingOrDescriptionContaining(parameter,parameter);
+    }
+
 }

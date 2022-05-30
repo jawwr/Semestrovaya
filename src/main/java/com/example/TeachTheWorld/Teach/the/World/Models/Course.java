@@ -21,6 +21,7 @@ public class Course {
     private Long id;
 
     @Column(name = "author_id")
+    @GeneratedValue
     private Long author_id;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

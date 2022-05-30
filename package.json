@@ -1,0 +1,7 @@
+{
+  "name": "Teach the World",
+  "version": "1.0.0",
+  "devDependencies": {
+    "vue-router": "^4.0.15"
+  }
+}
