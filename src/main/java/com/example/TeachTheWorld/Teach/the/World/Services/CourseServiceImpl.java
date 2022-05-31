@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CourseServiceImpl implements CourseService{
@@ -57,8 +58,11 @@ public class CourseServiceImpl implements CourseService{
 
     @Override
     public List<Course> searchCourseByParameter(String parameter) {
-        if (parameter == null) return courseRepository.findAll();
-        return courseRepository.findCourseByTitleContainingOrDescriptionContaining(parameter,parameter);
+//        if (parameter == null) return courseRepository.findAll();
+//        return courseRepository.findCourseByTitleContainingOrDescriptionContaining(parameter,parameter);
+        List<Course> courses = courseRepository.findAll().stream().filter(item -> item.getTitle().contains(parameter) || item.getDescription().contains(parameter)).collect(Collectors.toList());
+        courses.forEach(item -> item.setPages(null));
+        return courses;
     }
 
 }

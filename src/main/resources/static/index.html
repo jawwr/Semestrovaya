@@ -12,7 +12,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg">
-    <div class="container">
+    <div class="container-xxl">
         <a class="navbar-brand" href="#">
             <img src="image/logo.svg" alt="" width="32" height="50">
         </a>
@@ -37,29 +37,40 @@
         <button v-on:click="search" class="btn btn-outline-secondary" type="button" id="button-addon2">Поиск</button>
     </form>
 </div>
-
-<!-- <div class="container">
-    <div class="card" aria-hidden="true">
-        <div class="img-loaded"></div>
-        <div class="card-body">
-          <p class="card-text placeholder-glow">
-            <span class="placeholder col-7"></span>
-            <span class="placeholder col-4"></span>
-            <span class="placeholder col-4"></span>
-            <span class="placeholder col-6"></span>
-            <span class="placeholder col-8"></span>
-          </p>
+<div class="course-section">
+    <div class="container">
+        <div class="title">Последние курсы</div>
+        <div id="last-courses">
+            <div v-if="loaded" class="courses">
+                <course  v-for="course in info"
+                        :course="course"
+                        :key="course.id">
+                </course>
+            </div>
+            <div v-else class="courses">
+                <loadcard v-for="card in info"
+                        :card = "card">
+                </loadcard>
+            </div>
         </div>
     </div>
-</div> -->
-
-
-<div class="container">
-    <div id="courses">
-        <course v-for="course in info"
-                :course="course"
-                :key="course.id">
-        </course>
+</div>
+<div class="course-section">
+    <div class="container">
+        <div class="title">Последние курсы</div>
+        <div id="category-courses">
+            <div v-if="loaded" class="courses">
+                <course  v-for="course in info"
+                         :course="course"
+                         :key="course.id">
+                </course>
+            </div>
+            <div v-else class="courses">
+                <loadcard v-for="card in info"
+                          :card = "card">
+                </loadcard>
+            </div>
+        </div>
     </div>
 </div>
 <router-view></router-view>

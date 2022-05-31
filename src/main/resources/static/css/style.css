@@ -1,8 +1,12 @@
 html, body{
     background-color: #3B3B3B;
+    font-family: 'Gilroy',sans-serif
 }
 a{
     text-decoration: none;
+}
+a:hover{
+    color: black;
 }
 .container{
     width: 100%;
@@ -13,7 +17,6 @@ a{
     background-color: #5534A5;
 }
 .nav-link{
-    font-family: 'Gilroy',sans-serif;
     font-weight: 600;
     font-size: 20px;
     color: white;
@@ -25,7 +28,6 @@ a{
     background-color: #9A83D2;
 }
 .input-group{
-    font-family: 'Gilroy',sans-serif;
     width: 840px;
     margin-left: auto;
     margin-right: auto;
@@ -37,19 +39,43 @@ a{
     border-radius: 20px;
     width: 300px;
     height: 300px;
+    margin-bottom: 60px;
 }
 .img-loaded{
+    cursor: wait;
     width: 280px;
-    height: 175px;
+    height: 210px;
     background-color: #000;
     border-radius:20px;
+    animation: load_img 2s infinite;
 }
-#courses{
+@keyframes load_img{
+    0%{
+        background-color: #6b6b6b;
+    }
+    50%{
+        background-color: #c7c7c7;
+    }
+    100%{
+        background-color: #6b6b6b;
+    }
+}
+.course-section{
+    height: 750px;
+    margin-top: 90px;
+}
+.title{
+    font-weight: bold;
+    font-size: 40px;
+    color: white;
+    padding-bottom: 25px;
+}
+.courses{
     display: inline-flex;
     width: auto;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content:space-between;
 }
 .course{
     background-color: mediumpurple;
@@ -62,11 +88,12 @@ a{
     padding: 15px;
 }
 .course-title{
-    font-style: normal;
+    color: black;
     font-weight: bold;
-    font-size: 15px;
-    margin-bottom: 20px;
-    width: 120px;
+    font-size: 32px;
+    height: 68px;
+    line-height: 30px;
+    margin-top: 10px;
 }
 .course-description{
     font-style: normal;

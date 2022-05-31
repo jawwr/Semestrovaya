@@ -1,60 +1,45 @@
-const testData = [
-  {
-    "id":"1",
-    "title":"title-1",
-    "description":"description-1"
-  },
-  {
-    "id":"2",
-    "title":"title-2",
-    "description":"description-2"
-  },
-  {
-    "id":"3",
-    "title":"title-3",
-    "description":"description-3"
-  },
-  {
-    "id":"4",
-    "title":"title-4",
-    "description":"description-4"
-  },
-  {
-    "id":"5",
-    "title":"title-5",
-    "description":"description-5"
-  },
-  {
-    "id":"6",
-    "title":"title-6",
-    "description":"description-6"
-  }
-]
+Vue.component('loadcard',{
+  props: ['card'],
+  template: '<div class="card" aria-hidden="true">' +
+              '<div class="img-loaded"></div>' +
+              '<div class="card-body">' +
+                  '<p class="card-text placeholder-glow">' +
+                      '<span class="placeholder col-7"></span>' +
+                      '<span class="placeholder col-4"></span>' +
+                      '<span class="placeholder col-4"></span>' +
+                      '<span class="placeholder col-6"></span>' +
+                      '<span class="placeholder col-8"></span>' +
+                  '</p>' +
+              '</div>' +
+            '</div>'
+});
 
-new Vue({
-  el: '#courses',
+var lastCourse = new Vue({
+  el: '#last-courses',
   data() {
     return {
-      info: null,
-      load: false
+      info: ['','','','','',''],
+      loaded: false
     };
   },
   mounted() {
-    // this.info = testData;
     axios
         .get('/course?limit=6')
-        .then(response => {this.info = response.data; this.load = true})
-        .catch(response => (this.info = response.data));
-    console.log(this.load)
+        .then(response => {
+          this.info = response.data;
+          this.loaded = true;
+        })
+        .catch(error => console.log(error));
   }
 });
 
 Vue.component('course',{
   props: ['course'],
-  template: '<div class="course">' +
-        '<div class="course-title">{{ course.title }}</div> <div class="course-description">{{ course.description }}</div>' +
-      '</div>'
-})
+  template: '<div class="card">' +
+              '<div class="img-loaded"></div>' +
+              '<a href="" class="course-title">{{ course.title }}</a>' +
+            '</div>'
+});
 
 new Vue({
   el: '#search',
