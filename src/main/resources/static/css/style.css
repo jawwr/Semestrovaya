@@ -29,6 +29,20 @@ a{
     width: 840px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 90px;
+}
+.card{
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 20px;
+    width: 300px;
+    height: 300px;
+}
+.img-loaded{
+    width: 280px;
+    height: 175px;
+    background-color: #000;
+    border-radius:20px;
 }
 #courses{
     display: inline-flex;

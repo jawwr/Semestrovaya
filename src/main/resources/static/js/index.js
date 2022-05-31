@@ -35,15 +35,17 @@ new Vue({
   el: '#courses',
   data() {
     return {
-      info: null
+      info: null,
+      load: false
     };
   },
   mounted() {
     // this.info = testData;
     axios
         .get('/course?limit=6')
-        .then(response => (this.info = response.data))
+        .then(response => {this.info = response.data; this.load = true})
         .catch(response => (this.info = response.data));
+    console.log(this.load)
   }
 });
 

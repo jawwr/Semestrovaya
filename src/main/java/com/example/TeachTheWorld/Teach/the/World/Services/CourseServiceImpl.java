@@ -57,6 +57,7 @@ public class CourseServiceImpl implements CourseService{
 
     @Override
     public List<Course> searchCourseByParameter(String parameter) {
+        if (parameter == null) return courseRepository.findAll();
         return courseRepository.findCourseByTitleContainingOrDescriptionContaining(parameter,parameter);
     }
 

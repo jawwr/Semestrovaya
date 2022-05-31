@@ -48,7 +48,7 @@ public class CourseController {
     }
 
     @GetMapping("/search")
-    public List<Course> searchCourses(@RequestParam String parameter){
+    public List<Course> searchCourses(@RequestParam(required = false) String parameter){
         return service.searchCourseByParameter(parameter);
     }
 }
