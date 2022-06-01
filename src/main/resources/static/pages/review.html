@@ -30,13 +30,10 @@
         </div>
     </div>
 </nav>
-<div class="container">
-    <form id="search" class="input-group" action="pages/search.html" target="_self">
-        <input v-model="input" type="text" class="form-control" placeholder="Найти курс" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button v-on:click="search" class="btn btn-outline-secondary" type="button" id="button-addon2">Поиск</button>
-    </form>
+<div id="course">
+    <h1>{{ courseInfo.title }}</h1><br>
+    <h2>{{ courseInfo.description }}</h2>
 </div>
-<!-- <footer></footer> -->
-<script src="../js/search.js"></script>
+<script src="../js/courseReview.js"></script>
 </body>
 </html>

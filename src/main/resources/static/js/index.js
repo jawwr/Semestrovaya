@@ -49,7 +49,6 @@ var categoryCourses = new Vue({
           this.loaded = true;
         })
         .catch(error => console.log(error));
-        console.log(this.loaded);
   }
 })
 
@@ -57,7 +56,7 @@ Vue.component('course',{
   props: ['course'],
   template: '<div class="card">' +
               '<div class="img-loaded"></div>' +
-              '<a :href="`/course/${course.id}`" class="course-title">{{ course.title }}</a>' +
+              '<a :href="`/pages/review.html?id=${course.id}`" class="course-title">{{ course.title }}</a>' +
             '</div>'
 });
 

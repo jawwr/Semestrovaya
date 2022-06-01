@@ -1,4 +1,6 @@
-document.title = decodeURI(document.location.search.split('=')[1]);
+document.title = document.location.search.split('=')[1] === ''
+    ? 'Поиск'
+    : decodeURI(document.location.search.split('=')[1]);
 
 new Vue({
     el: '#search',
