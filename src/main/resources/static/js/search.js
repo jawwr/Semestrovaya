@@ -1,13 +1,15 @@
+document.title = decodeURI(document.location.search.split('=')[1]);
+
 new Vue({
-    el:'#test',
+    el: '#search',
     data(){
         return{
-            message:''
+            input: decodeURI(document.location.search.split('=')[1])
         }
     },
-    mounted() {
-        axios.get(`/course/search?parameter=${document.location.search.split('=')[1]}`)
-            .then(response => this.message = response.data)
-            .catch(error => console.log(error))
+    methods: {
+        search: function(){
+            window.location.href = `/pages/search.html?q=${this.input}`
+        }
     }
 })

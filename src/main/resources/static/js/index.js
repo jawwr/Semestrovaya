@@ -33,11 +33,31 @@ var lastCourse = new Vue({
   }
 });
 
+var categoryCourses = new Vue({
+  el: '#category-courses',
+  data(){
+    return{
+      info: ['','',''],
+      loaded: false
+    }
+  },
+  mounted() {
+    axios
+        .get('/course?limit=3')
+        .then(response => {
+          this.info = response.data;
+          this.loaded = true;
+        })
+        .catch(error => console.log(error));
+        console.log(this.loaded);
+  }
+})
+
 Vue.component('course',{
   props: ['course'],
   template: '<div class="card">' +
               '<div class="img-loaded"></div>' +
-              '<a href="" class="course-title">{{ course.title }}</a>' +
+              '<a :href="`/course/${course.id}`" class="course-title">{{ course.title }}</a>' +
             '</div>'
 });
 

@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CourseRepository extends JpaRepository<Course, Long> {
-    List<Course> findCourseByTitleContainingOrDescriptionContaining(String title, String description);
+//    List<Course> findCourseByTitleContainingOrDescriptionContaining(String title, String description);
 }
