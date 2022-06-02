@@ -14,11 +14,11 @@ Vue.component('loadcard',{
             '</div>'
 });
 
-var lastCourse = new Vue({
+const lastCourse = new Vue({
   el: '#last-courses',
   data() {
     return {
-      info: ['','','','','',''],
+      info: ['', '', '', '', '', ''],
       loaded: false
     };
   },
@@ -33,11 +33,11 @@ var lastCourse = new Vue({
   }
 });
 
-var categoryCourses = new Vue({
+const categoryCourses = new Vue({
   el: '#category-courses',
-  data(){
-    return{
-      info: ['','',''],
+  data() {
+    return {
+      info: ['', '', ''],
       loaded: false
     }
   },
@@ -50,13 +50,13 @@ var categoryCourses = new Vue({
         })
         .catch(error => console.log(error));
   }
-})
+});
 
 Vue.component('course',{
   props: ['course'],
   template: '<div class="card">' +
-              '<div class="img-loaded"></div>' +
-              '<a :href="`/pages/review.html?id=${course.id}`" class="course-title">{{ course.title }}</a>' +
+              '<div class="test-class">ку</div>' +
+              '<a :href="`/pages/review.html?id=${course.id}`" class="course-title">{{ course }}</a>' +
             '</div>'
 });
 
@@ -71,6 +71,6 @@ new Vue({
     search: function(){
         window.location.href = `/pages/search.html?q=${this.input}`
     }
-  }
+  },
 })
 

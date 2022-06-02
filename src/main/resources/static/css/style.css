@@ -67,6 +67,7 @@ a:hover{
 }
 .course-section{
     margin-top: 90px;
+    overflow: hidden;
 }
 .title{
     font-weight: bold;
@@ -107,7 +108,4 @@ footer{
     width: 100%;
     height: 70px;
     background-color: var(--control-element-color);
-}
-.more{
-
 }
