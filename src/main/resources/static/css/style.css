@@ -1,5 +1,6 @@
 :root{
     --control-element-color: #5534A5;
+    --course-background-color: #2F2F2F;
 }
 
 html, body{
@@ -69,6 +70,17 @@ a:hover{
     margin-top: 90px;
     overflow: hidden;
 }
+.course-section .course-list{
+    background-color: var(--course-background-color);
+    width: 1060px;
+    max-height: 770px;
+    height: inherit;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid black 2px;
+    border-radius: 20px;
+}
 .title{
     font-weight: bold;
     font-size: 40px;
@@ -103,6 +115,20 @@ a:hover{
 .course-description{
     font-style: normal;
     font-size: 10px;
+}
+.course-title-image{
+    width: 280px;
+    height: 200px;
+    border-radius:20px;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+}
+.course-image{
+    display: block;
+    margin: auto;
+    max-width: 280px;
+    max-height: 200px;
 }
 footer{
     width: 100%;

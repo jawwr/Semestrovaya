@@ -30,6 +30,7 @@ const lastCourse = new Vue({
           this.loaded = true;
         })
         .catch(error => console.log(error));
+    console.log('this is el')
   }
 });
 
@@ -52,11 +53,13 @@ const categoryCourses = new Vue({
   }
 });
 
-Vue.component('course',{
+const course = Vue.component('course',{
   props: ['course'],
   template: '<div class="card">' +
-              '<div class="test-class">ку</div>' +
-              '<a :href="`/pages/review.html?id=${course.id}`" class="course-title">{{ course }}</a>' +
+              '<div class="course-title-image">' +
+                '<img :src="`${course.titlePhotoPath}`" class="course-image">' +
+              '</div>' +
+              '<a :href="`/pages/review.html?id=${course.id}`" class="course-title">{{ course.title }}</a>' +
             '</div>'
 });
 
@@ -73,4 +76,3 @@ new Vue({
     }
   },
 })
-
