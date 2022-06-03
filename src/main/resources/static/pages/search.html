@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title></title>
+    <title>Поиск</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg sticky-top">
@@ -31,12 +31,22 @@
     </div>
 </nav>
 <div class="container">
-    <form id="search" class="input-group" action="search.html" target="_self">
-        <input v-model="input" type="text" class="form-control" placeholder="Найти курс" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <div id="search" class="input-group" method="get" @submit="search" action="search.html">
+        <input v-model="input" type="text" class="form-control" placeholder="Найти курс" >
         <button v-on:click="search" class="btn btn-outline-secondary" type="button" id="button-addon2">Поиск</button>
-    </form>
+    </div>
 </div>
-<!-- <footer></footer> -->
+<div class="search-result">
+    <div class="container">
+        <div id="courses">
+            <course v-for="course in info"
+                    :course="course"
+                    :key="course.id">
+            </course>
+        </div>
+    </div>
+</div>
+<!--<footer></footer>-->
 <script src="../js/search.js"></script>
 </body>
 </html>
