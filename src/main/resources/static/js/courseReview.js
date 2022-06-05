@@ -10,6 +10,7 @@ var course = new Vue({
         .get(`/course/${document.location.search.split('=')[1]}`)
             .then(response => {
                 this.courseInfo = response.data;
+                document.title = this.courseInfo.title;
             })
             .catch(error => console.log(error));
     }

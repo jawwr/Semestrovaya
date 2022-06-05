@@ -23,7 +23,7 @@
                     <a class="nav-link" aria-current="page" href="index.html">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Курсы</a>
+                    <a class="nav-link" href="pages/search.html">Курсы</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Магазин</a>
@@ -43,8 +43,8 @@
         <div class="container">
             <div class="title">Последние курсы</div>
             <div id="last-courses">
-                <div v-if="loaded" class="courses">
-                    <course  v-for="course in info"
+                <div v-if="isLoaded" class="courses">
+                    <course v-for="course in info"
                              :course="course"
                              :key="course.id">
                     </course>
@@ -63,8 +63,8 @@
         <div class="container">
             <div class="title">Категория</div>
             <div id="category-courses">
-                <div v-if="loaded" class="courses">
-                    <course  v-for="course in info"
+                <div v-if="isLoaded" class="courses">
+                    <course v-for="course in info"
                              :course="course"
                              :key="course.id">
                     </course>

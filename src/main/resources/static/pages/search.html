@@ -31,7 +31,7 @@
     </div>
 </nav>
 <div class="container">
-    <div id="search" class="input-group" method="get" @submit="search" action="search.html">
+    <div id="search" class="input-group">
         <input v-model="input" type="text" class="form-control" placeholder="Найти курс" >
         <button v-on:click="search" class="btn btn-outline-secondary" type="button" id="button-addon2">Поиск</button>
     </div>
@@ -39,10 +39,17 @@
 <div class="search-result">
     <div class="container">
         <div id="courses">
-            <course v-for="course in info"
-                    :course="course"
-                    :key="course.id">
-            </course>
+            <div v-if="isLoaded" class="search-courses">
+                <course v-for="course in info"
+                        :course="course"
+                        :key="course.id">
+                </course>
+            </div>
+            <div v-else class="search-courses">
+                <loaded v-for="card in info"
+                            :loaded="card">
+                </loaded>
+            </div>
         </div>
     </div>
 </div>

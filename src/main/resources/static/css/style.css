@@ -47,6 +47,9 @@ a:hover{
     height: 300px;
     margin-bottom: 60px;
 }
+.card:hover .course-image{
+    max-height: 215px;
+}
 .img-loaded{
     cursor: wait;
     width: 280px;
@@ -104,6 +107,11 @@ a:hover{
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.course .img-loaded{
+    width: 400px;
+    height: 300px;
+    margin-right: 20px;
+}
 .title-image{
     width: 400px;
     height: 300px;
@@ -157,6 +165,7 @@ a:hover{
     margin: auto;
     max-width: 280px;
     max-height: 200px;
+    transition: max-height .2s ease-in-out;
 }
 footer{
     width: 100%;

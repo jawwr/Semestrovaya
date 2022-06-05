@@ -19,7 +19,7 @@ const lastCourse = new Vue({
   data() {
     return {
       info: ['', '', '', '', '', ''],
-      loaded: false
+      isLoaded: false
     };
   },
   mounted() {
@@ -27,10 +27,9 @@ const lastCourse = new Vue({
         .get('/course?limit=6')
         .then(response => {
           this.info = response.data;
-          this.loaded = true;
+          this.isLoaded = true;
         })
         .catch(error => console.log(error));
-    console.log('this is el')
   }
 });
 
@@ -39,7 +38,7 @@ const categoryCourses = new Vue({
   data() {
     return {
       info: ['', '', ''],
-      loaded: false
+      isLoaded: false
     }
   },
   mounted() {
@@ -47,7 +46,7 @@ const categoryCourses = new Vue({
         .get('/course?limit=3')
         .then(response => {
           this.info = response.data;
-          this.loaded = true;
+          this.isLoaded = true;
         })
         .catch(error => console.log(error));
   }
