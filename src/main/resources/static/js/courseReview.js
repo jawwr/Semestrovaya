@@ -1,4 +1,11 @@
-var course = new Vue({
+Vue.component('page',{
+    props: ['page'],
+    template:   '<div class="page">' +
+                    '<div class="page-title">{{ page.title }}</div>' +
+                '</div>'
+})
+
+const course = new Vue({
     el: '#course',
     data() {
         return{

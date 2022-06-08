@@ -61,17 +61,3 @@ const course = Vue.component('course',{
               '<a :href="`/pages/review.html?id=${course.id}`" class="course-title">{{ course.title }}</a>' +
             '</div>'
 });
-
-new Vue({
-  el: '#search',
-  data(){
-    return{
-      input:''
-    }
-  },
-  methods: {
-    search: function(){
-        window.location.href = `/pages/search.html?q=${this.input}`
-    }
-  },
-})

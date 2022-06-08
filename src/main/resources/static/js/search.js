@@ -52,11 +52,6 @@ const search = new Vue({
     },
     mounted() {
         this.input = document.location.search === '' ? '' : decodeURI(document.location.search.split('=')[1]);
-    },
-    methods: {
-        search: function(e){
-            courses.search(this.input);
-        }
     }
 });
 

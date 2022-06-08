@@ -28,13 +28,73 @@
                 </li>
             </ul>
         </div>
+        <form class="d-flex" role="search" action="../pages/search.html">
+            <input class="form-control me-2" name="parameter" type="text" placeholder="Найти курс" aria-label="Search" autocomplete="off">
+            <button class="btn btn-outline-success" type="submit">Найти</button>
+        </form>
     </div>
 </nav>
 <div id="course">
-    <h1>{{ courseInfo.title }}</h1><br>
-    <h2>{{ courseInfo.description }}</h2>
-    <img :src="`${courseInfo.titlePhotoPath}`">
+    <div class="container">
+        <div class="review">
+            <div class="info">
+                <div v-if="courseInfo === '' || courseInfo.title === ''" class="title">
+                    <p class="placeholder-wave">
+                    <span class="placeholder col-3 placeholder-lg me-1"></span>
+                    <span class="placeholder col-2 placeholder-lg me-1"></span>
+                    <span class="placeholder col-4 placeholder-lg"></span>
+                    </p>
+                </div>
+                <div v-else class="title">
+                    {{ courseInfo.title }}
+                </div>
+                <hr>
+                <h1 class="title">
+                    Описание
+                </h1>
+                <div v-if="courseInfo === '' || courseInfo.description === ''" class="description">
+                    <div class="course-description">
+                    <p class="placeholder-wave">
+                        <span class="placeholder col-4 me-1"></span>
+                        <span class="placeholder col-7 me-1"></span>
+                        <span class="placeholder col-5 me-1"></span>
+                        <span class="placeholder col-3 me-1"></span>
+                        <span class="placeholder col-8 me-1"></span>
+                        <span class="placeholder col-2 me-1"></span>
+                        <span class="placeholder col-4 me-1"></span>
+                        <span class="placeholder col-3 me-1"></span>
+                        </p>
+                    </div>
+                </div>
+                <div v-else class="description">
+                    {{courseInfo.description}}
+                </div>
+            </div>
+            <div class="start-course">
+                <div class="title-image">
+                    <img v-if="courseInfo === '' || courseInfo.titlePhotoPath === ''" src="../image/icons/noImage.jpg" class="course-image">
+                    <img v-else :src="`${courseInfo.titlePhotoPath}`" class="course-image">
+                </div>
+                <div class="start-course-button">
+                    <button class="btn btn-primary" type="button" onsubmit="">Пройти курс</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="course-pages">
+            <h1 class="title">
+                Содержание курса
+            </h1>
+            <div class="pages">
+                <page v-for="page in courseInfo.pages"
+                      :page="page">
+
+                </page>
+            </div>
+        </div>
+    </div>
 </div>
+
 <!--<footer></footer>-->
 <script src="../js/courseReview.js"></script>
 </body>

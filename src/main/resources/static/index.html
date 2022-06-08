@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
 
@@ -34,8 +34,8 @@
 </nav>
 <div class="container">
     <form id="search" class="input-group" action="pages/search.html" target="_self">
-        <input v-model="input" type="text" class="form-control" placeholder="Найти курс" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button v-on:click="search" class="btn btn-outline-secondary" type="button" id="button-addon2">Поиск</button>
+        <input v-model="input" type="text" name="parameter" class="form-control" placeholder="Найти курс" aria-label="Recipient's username" aria-describedby="button-addon2" autocomplete="off">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2"title="Найти">Найти</button>
     </form>
 </div>
 <div class="course-section">
@@ -58,26 +58,26 @@
         </div>
     </div>
 </div>
-<div class="course-sectio">
-    <div class="course-list">
-        <div class="container">
-            <div class="title">Категория</div>
-            <div id="category-courses">
-                <div v-if="isLoaded" class="courses">
-                    <course v-for="course in info"
-                             :course="course"
-                             :key="course.id">
-                    </course>
-                </div>
-                <div v-else class="courses">
-                    <loadcard v-for="card in info"
-                              :card = "card">
-                    </loadcard>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!--<div class="course-section">-->
+<!--    <div class="course-list">-->
+<!--        <div class="container">-->
+<!--            <div class="title">Категория</div>-->
+<!--            <div id="category-courses">-->
+<!--                <div v-if="isLoaded" class="courses">-->
+<!--                    <course v-for="course in info"-->
+<!--                             :course="course"-->
+<!--                             :key="course.id">-->
+<!--                    </course>-->
+<!--                </div>-->
+<!--                <div v-else class="courses">-->
+<!--                    <loadcard v-for="card in info"-->
+<!--                              :card = "card">-->
+<!--                    </loadcard>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <!--<footer></footer>-->
 <script src=js/index.js?version=34"></script>
 </body>
