@@ -14,7 +14,7 @@ const course = new Vue({
     },
     mounted(){
         axios
-        .get(`/course/${document.location.search.split('=')[1]}`)
+        .get(`/api/course/${document.location.search.split('=')[1]}`)
             .then(response => {
                 this.courseInfo = response.data;
                 document.title = this.courseInfo.title;

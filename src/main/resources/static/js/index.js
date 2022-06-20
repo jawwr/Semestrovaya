@@ -1,3 +1,4 @@
+
 Vue.component('loadcard',{
   props: ['card'],
   template: '<div class="card" aria-hidden="true">' +
@@ -24,7 +25,7 @@ const lastCourse = new Vue({
   },
   mounted() {
     axios
-        .get('/course?limit=6')
+        .get('/api/course?limit=6')
         .then(response => {
           this.info = response.data;
           this.isLoaded = true;
@@ -43,7 +44,7 @@ const categoryCourses = new Vue({
   },
   mounted() {
     axios
-        .get('/course?limit=3')
+        .get('/api/course?limit=3')
         .then(response => {
           this.info = response.data;
           this.isLoaded = true;

@@ -65,7 +65,7 @@ const courses = new Vue({
     },
     mounted(){
         axios
-            .get(`/course/search?parameter=${search.input}`)
+            .get(`/api/course/search?parameter=${search.input}`)
             .then(response => {
                 this.info = response.data;
                 this.isLoaded = true;
@@ -77,7 +77,7 @@ const courses = new Vue({
             this.info = ['','','',''];
             this.isLoaded = false;
             axios
-                .get(`/course/search?parameter=${param}`)
+                .get(`/api/course/search?parameter=${param}`)
                 .then(response => {
                     this.info = response.data;
                     this.isLoaded = true;
