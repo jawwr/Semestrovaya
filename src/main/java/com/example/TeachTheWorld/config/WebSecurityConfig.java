@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -30,13 +31,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/").anonymous()
+                .antMatchers("/","/auth/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
-//                .loginPage("/auth/login")
-                .defaultSuccessUrl("/index.html")
+                .loginPage("/auth/login")
+                .defaultSuccessUrl("/")
 //                .and()
 //                .logout()
 //                .logoutRequestMatcher(new AntPathRequestMatcher("/auth/logout","POST"))

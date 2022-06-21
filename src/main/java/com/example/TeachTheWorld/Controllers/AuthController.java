@@ -12,4 +12,9 @@ public class AuthController {
     public String getLoginPage(){
         return "login";
     }
+
+    @GetMapping("/registration")
+    public String getRegisterPage(){
+        return "registration";
+    }
 }
