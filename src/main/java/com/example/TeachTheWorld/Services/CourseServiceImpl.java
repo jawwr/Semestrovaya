@@ -23,7 +23,7 @@ public class CourseServiceImpl implements CourseService{
 
     @Override
     public Course getCourseById(Long id) {
-        return courseRepository.getById(id);
+        return sortedCoursePage(courseRepository.getById(id));
     }
 
     @Override
@@ -65,4 +65,17 @@ public class CourseServiceImpl implements CourseService{
         return courses;
     }
 
+    private Course sortedCoursePage(Course course){
+        List<CoursePage> pages = course.getPages();
+        for (int i = 0; i < pages.size() - 1; i++) {
+            for (int j = 0; j < pages.size() - 1; j++) {
+                if (pages.get(j).getNumberPage() > pages.get(j + 1).getNumberPage()) {
+                    var intermediateCourse = pages.get(j);
+                    pages.set(j, pages.get(j + 1));
+                    pages.set(j + 1, intermediateCourse);
+                }
+            }
+        }
+        return course;
+    }
 }

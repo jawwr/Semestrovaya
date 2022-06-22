@@ -24,6 +24,8 @@ public class CoursePage {
     @GeneratedValue
     private Long course_id;
 
+    @Column(name = "number")
+    private int numberPage;
 
     @Column(name = "title")
     private String title;

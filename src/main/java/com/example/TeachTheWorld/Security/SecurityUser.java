@@ -1,7 +1,6 @@
 package com.example.TeachTheWorld.Security;
 
 import com.example.TeachTheWorld.Models.User;
-import net.bytebuddy.dynamic.DynamicType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,7 +8,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Optional;
 
 public class SecurityUser implements UserDetails {
 

@@ -75,9 +75,10 @@
                     <img v-if="courseInfo === '' || courseInfo.titlePhotoPath === ''" src="../image/icons/noImage.jpg" class="course-image">
                     <img v-else :src="`${courseInfo.titlePhotoPath}`" class="course-image">
                 </div>
-                <div class="start-course-button">
-                    <button class="btn btn-primary" type="button" onsubmit="">Пройти курс</button>
-                </div>
+                <form class="start-course-button" action="/pages/course.html">
+                    <input type="hidden" :value="`${courseInfo.id}`" name="id">
+                    <button class="btn btn-primary" type="submit">Пройти курс</button>
+                </form>
             </div>
 
         </div>
