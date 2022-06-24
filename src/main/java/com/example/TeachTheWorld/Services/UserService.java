@@ -9,4 +9,5 @@ public interface UserService {
     User getById(Long id);
     void deleteById(Long id);
     void save(User user);
+    User getAuthenticationUser();
 }

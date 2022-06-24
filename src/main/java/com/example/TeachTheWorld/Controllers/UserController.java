@@ -45,4 +45,9 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/im")
+    public User getCurrentUser(){
+        return userService.getAuthenticationUser();
+    }
 }
